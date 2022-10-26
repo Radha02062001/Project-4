@@ -10,9 +10,10 @@ import Cards from './assets/cards'
 import List from './assets/list'
 import Child from './assets/button'
 import Kare from './assets/kare'
+import Notifying from './assets/file'
 
 const followers=[{name:'sasmitha', isFollowing : false},{name:'Abi', isFollowing : false},
- {name:'nerajana', isFollowing : false},{name:'Madhu', isFollowing : false},
+ {name:'neranjana', isFollowing : false},{name:'Madhu', isFollowing : false},
  {name:'padhuma', isFollowing : false},{name:'Maha', isFollowing : false},
  {name:'sangavi', isFollowing : false},{name:'Mathan', isFollowing : false},
  {name:'gayu', isFollowing : false},{name:'priya', isFollowing : false}]
@@ -244,6 +245,8 @@ const renderFollowe=foll.map((followers, index)=>{
     })}
    </div>
    <Kare/>
+   <Notifying/>
+   
     </React.Fragment>
     
   )

@@ -26,6 +26,7 @@ const Notifying = () => {
       {
         title,
         description,
+        image
       },
     ]);
     setTitle("");
@@ -40,29 +41,29 @@ const Notifying = () => {
     setPosts(posts.find((add) => add.title === title));
   };
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    setEditId([
-      ...editId,
-      {
-        title,
-        description,
-      },
-    ]);
-    setButtonText("Update");
+  const handleClick = () => {
+   
+    console.log(editId)
+    const data=[...posts]
+    data[editId]={
+      title,description,image
+    }
+    console.log(data)
+    setPosts([...data])
     setTitle("");
     setDescription("");
+    setEditId(null)
   };
 
   useEffect(() => {});
-  console.log(editId);
+
   return (
     <div className="wrapper">
       <div className="note">
         <div className="row">
           <div className="local_storage">
             <h1> Storage</h1>
-            <form onSubmit={AddPost}>
+           
               <div className="form-container">
                 <br></br>
                 <label for="myfile">Select a file:</label>
@@ -83,6 +84,9 @@ const Notifying = () => {
                     reader.readAsDataURL(file);
                   }}
                 ></input>
+                <h2>preview</h2>
+                <img src={image} width="100px"height="100px"/>
+                <button onClick={setImage}>Delete</button>
                 <br></br>
                 <br></br>
                 <label for="title">Title</label>
@@ -111,17 +115,17 @@ const Notifying = () => {
               </div>
               <br></br>
               {editId === null ? (
-                <button type={handleClick}>{buttonText}</button>
+                <button onClick={AddPost}>{buttonText}</button>
               ) : (
-                <button type={handleClick}>update</button>
+                <button type="button" onClick={handleClick}>update</button>
               )}
-            </form>
+           
 
             <br></br>
             <div className="block">
               {posts.map((item, index) => (
                 <div className="post" key={item.title}>
-                  <img src={image} width="50px" height="50px" />
+                  <img src={item.image} width="50px" height="50px" />
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
                   <br></br>

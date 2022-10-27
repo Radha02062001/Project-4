@@ -12,6 +12,9 @@ import Child from './assets/button'
 import Kare from './assets/kare'
 import Notifying from './assets/file'
 
+
+
+
 const followers=[{name:'sasmitha', isFollowing : false},{name:'Abi', isFollowing : false},
  {name:'neranjana', isFollowing : false},{name:'Madhu', isFollowing : false},
  {name:'padhuma', isFollowing : false},{name:'Maha', isFollowing : false},
